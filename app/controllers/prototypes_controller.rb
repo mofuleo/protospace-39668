@@ -13,12 +13,14 @@ class PrototypesController < ApplicationController
     if @prototype.save
     redirect_to root_path
     else
-    render :new, status: :unprocessable_entity    
+    render :new, status: :unprocessable_entity
     end
   end
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
   end
 
 
