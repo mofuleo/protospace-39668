@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :move_to_index, except:[:index,:show]
+before_action :move_to_index, except:[:show]
 
   def show
     @user = User.find(params[:id])
